@@ -1,0 +1,17 @@
+Algoritmo para fritar ovos
+
+1.    pegar frigideira, ovo, óleo e sal
+2.    colocar óleo na frigideira
+3.    acender o fogo
+4.    leve a frigideira ao fogo
+5.    esperar o óleo esquentar
+6.    quebrar o ovo
+7.    colocar o ovo
+8.    colocar sal no ovo
+9.    retirar quando pronto
+10.   apagar o fogo
+
+Para programar envolve logica, no exemplo acima a seguinte logica é como fritar um ovo.  Voce tem que pensar um passo a passo desde como quebrar um ovo e 
+como esquentar o olho para fritar o ovo.   
+
+

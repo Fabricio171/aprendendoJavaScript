@@ -14,4 +14,15 @@ Algoritmo para fritar ovos
 Para programar envolve logica, no exemplo acima a seguinte logica é como fritar um ovo.  Voce tem que pensar um passo a passo desde como quebrar um ovo e 
 como esquentar o olho para fritar o ovo.   
 
+______________________________________________________________________________________________________________________________________________________________________________________
 
+    let         <-- esse é o tipo que so pega em um bloco;
+    var         <-- ele pega a pagina inteira;
+
+    alert("Olá, mundo!");   <-- A função console.log() exibe uma mensagem no console.
+
+    console.log("Olá, mundo!");     <-- A função document.write() exibe uma mensagem na página atual.
+
+    document.write("Olá, mundo!");  <--  Teste cada um dos exemplos separadamente e observe o que acontece.
+
+    

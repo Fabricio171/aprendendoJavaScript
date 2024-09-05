@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="compra()"> Compra produtos</button>
+
+    <script>
+            let nomeprod, valorprod, vendaprod, result;
+
+                nomeprod = prompt ("Que produto voce esta comprando? ");
+
+                    valorprod = Number (prompt("Quanto custa "+ nomeprod + " que voce esta comprando? "));
+
+                        vendaprod = Number (prompt("Qual foi o valor que voce deu para pagar "+ nomeprod));
+
+                        if ( valorprod <  vendaprod)
+                        {    
+                            result =  vendaprod - valorprod ;
+                        }
+                        else
+                        {
+                         result =valorprod  -  vendaprod  ;
+                        }
+
+                        alert("voce comprou "+ nomeprod + " que custa R$ " + valorprod + ". \n Deu R$ "+ vendaprod + " em dinheiro e vai receber R$ "+ result)
+
+
+
+    </script>
+</body>
+</html>

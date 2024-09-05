@@ -16,13 +16,51 @@ como esquentar o olho para fritar o ovo.
 
 ______________________________________________________________________________________________________________________________________________________________________________________
 
-    let         <-- esse é o tipo que so pega em um bloco;
-    var         <-- ele pega a pagina inteira;
+    let                                                                       <-- esse é o tipo que so pega em um bloco;
+    var                                                                        <-- ele pega a pagina inteira;  
+                                            
+    alert("Olá, mundo!");                                                        <-- A função console.log() exibe uma mensagem no console. Alertando alguma coisa ao usuario
 
-    alert("Olá, mundo!");   <-- A função console.log() exibe uma mensagem no console.
+    console.log("Olá, mundo!");                                                  <-- A função document.write() exibe uma mensagem na página atual.
 
-    console.log("Olá, mundo!");     <-- A função document.write() exibe uma mensagem na página atual.
+    document.write("Olá, mundo!");                                                  <--  Teste cada um dos exemplos separadamente e observe o que acontece.
 
-    document.write("Olá, mundo!");  <--  Teste cada um dos exemplos separadamente e observe o que acontece.
+   <script src="Lampada.js"></script>                                           <-- linkando o javascript na pagina html
 
+   id="lampada"                                                               <-- id pega o valor que esta na variavel 
     
+    lampada.addEventListener('mouseover', lampadaAcesa);                        <-- mouseover = quando passar o mouse em cima do elemento ele munda de cordo com foi programada 
+
+    lampada.addEventListener('mouseout', lampadaDesligada);                     <-- mouseout  = quando o ponteiro do mouse sair do elemento ele chama a funcao que foi programada 
+
+    lampada.addEventListener('click', lampadaBroken);                             <-- click = quando click no elemento 
+
+    function NomeDaFuncao ()        <--     Declaracao de uma funcao
+    {
+
+    }
+                                                        ________________________
+                                                                Alert
+                                                        ________________________
+
+                            O que é ?                  <-- Ela exibi uma caixa de dialogo na tela do usuario.
+
+                            para que serve ?            <-- ele é usada para tanto como um alerta para usuario tanto para uma informacao.
+
+        Como posso usar
+        
+            alert("sua mensagem aqui");              <-- mostra o valor 
+
+            propt ()                          <-- ele recebe um valor 
+            confirm()                   <-- ele faz que usuario escolha entre comfirmar ou cancelar 
+
+            
+
+
+
+
+
+
+
+
+

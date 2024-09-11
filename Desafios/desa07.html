@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>desa07</title>
+</head>
+<body>
+
+    <h1>Conversor R$ --> US$ </h1>
+
+    <button onclick="carteira()">Converter</button>
+    <p id="result"></p>
+
+    <p>Clique no botao acima para iniciar.</p>
+
+    <script>
+        var dolar;
+
+        dolar = Number (prompt("Antes de mais nada. Quanto esta a cotaçao do dolar agora? "));
+
+        function carteira()
+        {
+            var dinheiro, result;
+
+                dinheiro = Number (prompt('Quantos R$ voce tem na carteira? '));
+
+                result = dinheiro / dolar;
+
+             document.getElementById("result").innerHTML = ` ${result} em DOLAR `;
+        }
+
+    </script>
+    
+
+</body>
+</html>

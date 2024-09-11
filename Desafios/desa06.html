@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>desa06</title>
+</head>
+<body>
+        <h1> Conversor de Temperaturas</h1>
+
+            <button onclick = "temp()">Click aqui</button>
+
+            <h1 id="corresponde"></h1>
+
+            <p id="temperaturas"></p>
+
+            <p>Clique no botao acima para iniciar.</p>
+
+            <script>
+
+                function temp() 
+                {
+                    var temC, f, k;
+
+                    temC = Number(prompt("Digite uma temperatura em °C (Celsius)"));
+
+                    f = (temC * 1.8) + 32 ;
+                    k = temC + 273;
+
+                     document.getElementById("corresponde").innerHTML = `A temperatura de ${temC} °C, corresponde a.... `;
+                     document.getElementById("temperaturas").innerHTML = ` ${f} °F (Fahrenheit) <br> ${k} °K (kelvin) `;
+                }
+
+
+            </script>
+    
+</body>
+</html>

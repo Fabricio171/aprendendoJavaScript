@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>desa09</title>
+</head>
+<body>
+
+    <h1>Reajuste salarial </h1>
+
+    <button onclick="salario()">Reajuste salarial</button>
+
+    <p id="text"></p>
+    <p id="preco_original"></p>
+
+    <p>Clique no botao acima para iniciar.</p>
+    
+
+
+    <script>
+        
+        function salario()
+        {
+
+            var nomefunc, salarial, porc;
+
+             nomefunc = prompt("Qual é o nome do funcionario? ");
+
+                salario = Number (prompt("Qual é o salario de "+ nomefunc + " ?"));
+
+                porc = Number (prompt("O salario de " + nomefunc + " vai ser reajustado em qual porcentagem ? "));
+                
+
+
+             document.getElementById("text").innerHTML = `${nomefunc} Recebeu um aumento salarial!  `;
+
+             document.getElementById("preco_original").innerHTML = `O salario atual era R$ ${salarial} .`;
+
+             document.getElementById("desconto").innerHTML = `Com um aumento de ${porc} , o salario vai aumentar R$ ${} `;
+
+             document.getElementById("valorPago").innerHTML = `No final, voce vai pagar R$ ${desc} no produto ${nomePro}`;
+
+
+
+
+        }
+    </script>
+    
+</body>
+</html>

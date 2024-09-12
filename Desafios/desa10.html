@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>desa10</title>
+</head>
+<body>
+    <h1>Resolvendo Bhaskara</h1>
+
+    <button onclick="Bhaskara()">Calcular</button>
+
+    <h1 id="text"></h1>
+    <p id="equacaooriginal"></p>
+    <p id="calc"></p>
+    <p id="result"></p>
+
+    <p>Clique no botao acima para iniciar.</p>
+
+    <script>
+        function Bhaskara()
+        {
+            var a, b, c, result;
+
+            a = Number(prompt("Qual é o valor de a ? "));
+            b = Number(prompt("Qual é o valor de b ? "));
+            c = Number(prompt("Qual é o valor de c ? "));
+
+            result = (b * b) - 4 * a * c;
+
+            document.getElementById("text").innerHTML = `Resolva Bhaskara `;
+            document.getElementById("equacaooriginal").innerHTML = `A equacao atual é ${a}x² + ${b}x + ${c} = 0 `;
+            document.getElementById("calc").innerHTML = `O calculo realizado sera Δ = ${b}² - 4 . ${a} . ${c} `;
+            document.getElementById("result").innerHTML = `O valor calculado foi Δ = ${result}`;
+
+
+
+
+        }
+    </script>
+
+</body>
+</html>

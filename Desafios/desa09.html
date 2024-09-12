@@ -11,8 +11,10 @@
 
     <button onclick="salario()">Reajuste salarial</button>
 
-    <p id="text"></p>
+    <h1 id="text"></h1>
     <p id="preco_original"></p>
+    <p id="desconto"></p>
+    <p id="valorPago"></p>
 
     <p>Clique no botao acima para iniciar.</p>
     
@@ -23,7 +25,7 @@
         function salario()
         {
 
-            var nomefunc, salarial, porc;
+            var nomefunc, salarial, porc, salarioaumentado, salariototal;
 
              nomefunc = prompt("Qual é o nome do funcionario? ");
 
@@ -31,15 +33,17 @@
 
                 porc = Number (prompt("O salario de " + nomefunc + " vai ser reajustado em qual porcentagem ? "));
                 
-
+                
+                 salarioaumentado = (porc / 100) * salario;
+                 salariototal = salarioaumentado + salario;
 
              document.getElementById("text").innerHTML = `${nomefunc} Recebeu um aumento salarial!  `;
 
-             document.getElementById("preco_original").innerHTML = `O salario atual era R$ ${salarial} .`;
+             document.getElementById("preco_original").innerHTML = `O salario atual era R$ ${salario} .`;
 
-             document.getElementById("desconto").innerHTML = `Com um aumento de ${porc} , o salario vai aumentar R$ ${} `;
+             document.getElementById("desconto").innerHTML = `Com um aumento de ${porc}%, o salario vai aumentar R$ ${salarioaumentado} no procimo mes. `;
 
-             document.getElementById("valorPago").innerHTML = `No final, voce vai pagar R$ ${desc} no produto ${nomePro}`;
+             document.getElementById("valorPago").innerHTML = `E a partir dai, ${nomefunc} vai passar a ganhar R$ ${salariototal}.`;
 
 
 

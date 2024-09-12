@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>desa11</title>
+</head>
+<body>
+    
+        <h1>Ano Bissexto</h1>
+
+        <button onclick="Bissexto()">Verificar</button>
+
+        <h1 id="text"></h1>
+         <p id="bi"></p>
+
+        <p>Clique no botao acima para iniciar.</p>
+
+    <script>
+
+        function Bissexto()
+        { 
+            var ano_l;
+
+             ano_l = Number (prompt("Qual é o ano que voce quer verificar: "));
+
+             document.getElementById("text").innerHTML = `Analisando o ano de ${ano_l} `;
+
+             if ( ano_l % 4 == 0 )
+             {
+                document.getElementById("bi").innerHTML = `O ano de ${ano_l} É BISSEXTO ✔`;            
+             }
+             else
+             {
+                document.getElementById("bi").innerHTML = `O ano de ${ano_l} NAO É BISSEXTO 🚩`;
+             }
+        }
+    </script>
+
+</body>
+</html>

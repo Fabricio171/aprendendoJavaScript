@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>desa12</title>
+</head>
+<body>
+
+    <h1>Preço mudou</h1>
+
+    <button onclick="preco()">Verificar</button>
+
+    <h1 id="text"></h1>
+    <p id="preco"></p>
+    <p id="desconto"></p>        
+    <p id="result"></p>
+    <p id="porc"></p>
+
+    <p>Clique no botao acima para iniciar.</p>
+    
+
+
+    <script>
+        
+        function preco()
+        {
+
+            var preco_ant, preco_atu, result, porc;
+
+                preco_ant = Number (prompt("Qual era o preco anterior do produto ? "));
+
+                preco_atu = Number (prompt("Qual era o preco atual do produto ?"));   
+                
+                document.getElementById("text").innerHTML = `Analizando os valores informados`;
+                document.getElementById("preco").innerHTML = `O produto custava R$ ${preco_ant} e agora custa R$ ${preco_atu}`;
+                
+                 if ( preco_ant < preco_atu)
+                 {
+                    result = preco_atu - preco_ant;
+                    porc   = (preco_ant * 100) / preco_atu;  
+
+                    document.getElementById("desconto").innerHTML = `Hoje o produto esta mais caro`; 
+                    document.getElementById("result").innerHTML = `O preco subiu R$ ${result} em relacao ao preco anterior`;
+                    document.getElementById("porc").innerHTML = `Uma variacao de ${porc}% pra baixo`;
+                 }
+                 else
+                 {
+                    result =  preco_ant - preco_atu;
+                    porc   = (preco_atu * 100) / preco_ant;
+
+                    document.getElementById("desconto").innerHTML = `Hoje o produto esta mais barato`;              
+                    document.getElementById("result").innerHTML = `O preco caiu R$ ${result} em relacao ao preco anterior`;
+                    document.getElementById("porc").innerHTML = `Uma variacao de ${porc}% pra cima`;
+                 }          
+        }
+    </script>
+    
+</body>
+</html>

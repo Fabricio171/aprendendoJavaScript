@@ -37,21 +37,22 @@
                 
                  if ( preco_ant < preco_atu)
                  {
-                    result = preco_atu - preco_ant;
-                    porc   = (preco_ant * 100) / preco_atu;  
+        
+                    porc  = - ((( preco_ant - preco_atu ) / preco_ant)  * 100);  
 
                     document.getElementById("desconto").innerHTML = `Hoje o produto esta mais caro`; 
                     document.getElementById("result").innerHTML = `O preco subiu R$ ${result} em relacao ao preco anterior`;
-                    document.getElementById("porc").innerHTML = `Uma variacao de ${porc}% pra baixo`;
+                    document.getElementById("porc").innerHTML = `Uma variacao de ${porc}% pra cima`;
+                    
                  }
                  else
                  {
-                    result =  preco_ant - preco_atu;
-                    porc   = (preco_atu * 100) / preco_ant;
+                    porc   = ( (preco_ant - preco_atu ) / preco_ant)  * 100; 
 
                     document.getElementById("desconto").innerHTML = `Hoje o produto esta mais barato`;              
                     document.getElementById("result").innerHTML = `O preco caiu R$ ${result} em relacao ao preco anterior`;
-                    document.getElementById("porc").innerHTML = `Uma variacao de ${porc}% pra cima`;
+                    document.getElementById("porc").innerHTML = `Uma variacao de ${porc}% pra baixo`;
+                    
                  }          
         }
     </script>

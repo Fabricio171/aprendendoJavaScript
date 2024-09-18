@@ -11,19 +11,42 @@
 
     <button onclick="Notas()">Entrar com as notas</button>
 
+    <h1 id="text"></h1>
+    <p id="media"></p>
+    <p id="result"></p>
+
     <p>Clique no botao acima para iniciar.</p>
 
     <script>
         function Notas()
         {
-            var nomeal, pnota, snota;
+            var nomeal, pnota, snota, media;
 
             nomeal= prompt("Qual é o nome do aluno: ");
 
-            pnota = prompt("Primeira nota de "+ nomeal + " : ");
-            snota = prompt("Segunda nota de "+ nomeal + " : ");
+            pnota = Number(prompt("Primeira nota de "+ nomeal + " : "));
+            snota = Number(prompt("Segunda nota de "+ nomeal + " : "));
 
+            media = (pnota + snota) / 2;
+
+        if(media >= 3 && media <= 6)
+        {           
+            document.getElementById("result").innerHTML = `Com media entre 3 e 6, o aluno esta em Recuperacao`;
         }
+        else
+        if (media > 6)
+        {
+            document.getElementById("result").innerHTML = `Com media acima de 6, o aluno esta Aprovado`;
+        }
+       else  
+       {
+            document.getElementById("result").innerHTML = `Com media abaixo de 3, o aluno esta Reprovado`;
+       }   
+        document.getElementById("text").innerHTML = `Analisando a situacao de ${nomeal}`; 
+        document.getElementById("media").innerHTML = `Com as notas ${pnota} e ${snota}, a media é ${media}`; 
+           
+
+       }
     </script>
 
 </body>

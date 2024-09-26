@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora-IMC 🥰​​​​🤣​</title>
+    <style>
+        body {
+            margin-left: 40%;
+            margin-right: 40%;
+            font-family: ;
+        }
+        #name {
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Calculadora - IMC</h1>
+    <hr>
+
+    <label for="name">Nome: </label>
+    <input type="text" id="name" name="name">
+    <br>
+
+    <label for="altura">Altura (M): </label>
+    <input type="number" id="altura">
+    <br>
+
+    <label for="peso">Peso: </label>
+    <input type="number" id="peso">
+    <br>
+
+    <button onclick="calculo()">Calcular</button>
+    <br>
+    <h1 id="result"></h1>
+
+
+    <script>
+        function calculo() {
+
+            const name = document.querySelector("#name").value;
+            const alturacm = parseFloat(document.querySelector("#altura").value.replace('.',','));
+            const peso = parseFloat(document.querySelector("#peso").value);    
+            const result = document.getElementById("result");
+          
+            const altura = alturacm / 100;
+
+            if (name && !isNaN(altura) && !isNaN(peso)) {
+                
+                let imc, classificacao;
+                
+                imc = peso / (altura * altura);
+
+                //Obesidade grau III
+                if (imc > 40.0) {
+                    classificacao = "Obesidade grau III";
+                } else if (imc > 35.0) {
+                    classificacao = "Obesidade grau II";
+                } else if (imc > 30.0) {
+                    classificacao = "Obesidade grau I";
+                } else if (imc > 25.0) {
+                    classificacao = "Sobrepeso";
+                } else if (imc > 18.5) {
+                    classificacao = "Normal";
+                } else {
+                    classificacao = "Abaixo do normal";
+                }
+
+                result.innerHTML = `${name}, seu IMC é ${imc.toFixed(2)}. Classificação: ${classificacao}`;
+            } else {
+                result.innerHTML = `Por favor, preencha todos os campos.`;
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

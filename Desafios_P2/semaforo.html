@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semáforo com Imagens</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .semaforo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .botoes {
+            display: flex;
+            justify-content: space-between;
+            width: 250px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="semaforo">
+        <img id="semaforoImagem" src="img/semaforodesligado.png" alt="Semáforo">
+    </div>
+
+    <div class="botoes">
+        <button onclick="mudarLuz('red')">Vermelho</button>
+        <button onclick="mudarLuz('yellow')">Amarelo</button>
+        <button onclick="mudarLuz('green')">Verde</button>
+        <button onclick="Automatico()">Automático</button>
+        <button onclick="desligar('desligar')">Desligar</button>
+    </div>
+
+    <script>
+        let intervalo;
+        let automaticoAtivo = false;
+
+        function mudarLuz(corAtiva) {
+            // Se o modo automático estiver ativo, desativa
+            if (automaticoAtivo) {
+                clearInterval(intervalo);
+                automaticoAtivo = false;
+            }
+
+            // Troca a imagem com base na cor ativa
+            const semaforoImagem = document.getElementById('semaforoImagem');
+            if (corAtiva === 'red') {
+                semaforoImagem.src = "img/semaforovermelho.png";
+            } else if (corAtiva === 'yellow') {
+                semaforoImagem.src = "img/semaforoamarelo.png";
+            } else if (corAtiva === 'green') {
+                semaforoImagem.src = "img/semaforoverde.png";
+            }
+        }
+
+        function desligar()
+        {
+            if (Automatico)
+            {
+                clearInterval(intervalo); // clearInterval: é usado para parar a execução repetida iniciada por setInterval().
+                automatico = false;
+            }
+            document.getElementById('semaforoImagem').src = "img/semaforodesligado.png";
+        }
+
+        // Modo automático
+        function Automatico() {
+            automaticoAtivo = true;
+            let corAtual = 'red';
+            mudarLuz(corAtual); // Começa com o vermelho
+
+            intervalo = setInterval(() => { //setInterval:  Executa uma função repetidamente em um intervalo de tempo.
+                if (corAtual === 'red') {
+                    mudarLuz('yellow');
+                    corAtual = 'yellow';
+                } else if (corAtual === 'yellow') {
+                    mudarLuz('green');
+                    corAtual = 'green';
+                } else {
+                    mudarLuz('red');
+                    corAtual = 'red';
+                }
+            }, 2000); // Muda a cor a cada 2 segundos
+        }
+    </script>
+
+</body>
+</html>

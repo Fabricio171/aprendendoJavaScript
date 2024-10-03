@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player de Música</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        button {
+            padding: 15px 25px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Player de Música</h1>
+    
+    <button onclick="tocarMusica('musica1')">Música 1</button>
+    <button onclick="tocarMusica('musica2')">Música 2</button>
+    <button onclick="tocarMusica('musica3')">Música 3</button>
+    <button onclick="tocarMusica('musica4')">Música 4</button>
+
+    <audio id="audio" src="" preload="auto"></audio>
+
+    <script>
+        function tocarMusica(musica) {
+            const audio = document.getElementById('audio');
+            switch (musica) {
+                case 'musica1':
+                    audio.src = 'caminho/para/sua/musica1.mp3'; 
+                    break;
+                case 'musica2':
+                    audio.src = 'caminho/para/sua/musica2.mp3';
+                    break;
+                case 'musica3':
+                    audio.src = 'caminho/para/sua/musica3.mp3';
+                    break;
+                case 'musica4':
+                    audio.src = 'caminho/para/sua/musica4.mp3';
+                    break;
+            }
+            audio.play();
+        }
+    </script>
+
+</body>
+
+</html>

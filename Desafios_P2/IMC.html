@@ -4,209 +4,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Calculadora de IMC</title>
-
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 400px;
-            margin: auto;
-            background: white;
-            padding: 20px;
+        .formcalc {
+            text-align: center;
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 400px;
+            background-color: #ffc404;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 2px 2px 2px 2px #080808;
         }
 
         h1 {
-            text-align: center;
-        }
-
-        .input-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
+            font-size: 35px;
             margin-bottom: 5px;
         }
 
+        hr {
+            border: #000 3px solid;
+        }
+
+        label strong {
+            font-size: 20px;
+        }
+
         input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        #nomediv input {
+            margin-top: 30px;
+            margin-left: 25px;
+            padding: 15px 0 15px 0;
             border-radius: 5px;
+            border-color: #fff;
         }
 
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #5cb85c;
-            color: white;
-            border: none;
+        #alturadiv input {
+            margin-left: 20px;
+            padding: 15px 0 15px 0;
             border-radius: 5px;
-            cursor: pointer;
+            border-color: #fff;
         }
 
-        button:hover {
-            background-color: #4cae4c;
+        #pesodiv input {
+            margin-left: 37px;
+            padding: 15px 0 15px 0;
+            border-radius: 5px;
+            border-color: #fff;
         }
 
-        .result {
-            margin-top: 20px;
-            text-align: center;
-            font-size: 1.2em;
+        #botao_calcular {
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 15px;
+            background-color: #000;
+            border-radius: 5px;
+            padding: 5px 105px 5px 105px;
+            color: #ffc404;
+        }
+
+        #result {
+            margin-left: 15px;
+            margin-right: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #000;
+            color: #fff;
+            padding: 40px 55px 40px 55px;
+            overflow: hidden;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Calculadora de IMC</h1>
-        <form id="imcForm">
-            <div class="input-group">
-                <label for="weight">Peso (kg):</label>
-                <input type="number" id="weight" required>
+    <section class="calculadoraimc">
+        <form action="#" class="formcalc">
+            <h1>Calculadora - IMC</h1>
+            <hr>
+
+            <div id="nomediv">
+                <label for=""><strong>Nome:</strong></label>
+                <input type="text" name="nome" id="nome">
+                <br>
             </div>
-            <div class="input-group">
-                <label for="height">Altura (m):</label>
-                <input type="number" step="0.01" id="height" required>
+
+            <div id="alturadiv">
+                <label for=""><strong>Altura (em metros):</strong></label>
+                <input min="0" type="number" step="0.01" name="altura" id="altura">
+                <br>
             </div>
-            <button type="submit">Calcular IMC</button>
+
+            <div id="pesodiv">
+                <label for=""><strong>Peso (em kg):</strong></label>
+                <input min="0" type="number" name="peso" id="peso">
+                <br>
+            </div>
+
+            <button id="botao_calcular" type="button" onclick="calculoIMC()">Calcular</button>
+            <br>
+
+            <textarea name="result" id="result" disabled="disabled"><img id="img"></textarea>
+
         </form>
-        <div id="result" class="result"></div>
-    </div>
+    </section>
+
     <script>
-        document.getElementById('imcForm').addEventListener('submit', function (event) {
-            event.preventDefault();
+        // Função para calcular o IMC
+        function calcularIMC(peso, altura) {
+            return (peso / (altura * altura)).toFixed(2);
+        }
 
-            const weight = parseFloat(document.getElementById('weight').value);
-            const height = parseFloat(document.getElementById('height').value);
+        // Função para classificar o IMC
+        function classificarIMC(imc) {
+            if(imc < 20)
+    		{
+    			alert('Você esta abaixo do peso!');
+                document.getElementById('img').src = "img/IMC/baixoNormal.webp";
+    		} 
+    		else if(imc >20 && imc <= 25)
+    		{
+    			alert("Peso Ideal");
+                document.getElementById('img').src = "img/IMC/normal.webp";
+    		}
+    		else if(imc >25 && imc <= 30)
+    		{
+    			alert("Sobrepeso");
+                document.getElementById('img').src = "img/IMC/sobrepeso.webp";
+    		}
+    		else if(imc >30 && imc <= 35)
+    		{
+    			alert("Obesidade Moderada");
+                document.getElementById('img').src = "img/IMC/obesidadeGrau1.webp";
+    		}
+    		else if(imc >35 && imc <= 40)
+    		{
+    			alert("Obesidade Severa");
+                document.getElementById('img').src = "img/IMC/obesidadeGrau2.webp";
+    		}
+    		else if(imc >40 && imc <= 50)
+    		{
+    			alert("Obesidade Morbida");
+                document.getElementById('img').src = "img/IMC/obesidadeGrau3.webp";
+    		}
+        }
 
-            if (weight <= 0 || height <= 0) {
+        // Função para realizar o cálculo e exibir o resultado
+        function calculoIMC() {
+            const peso = parseFloat(document.getElementById('peso').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+
+            if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
                 alert('Por favor, insira valores válidos para peso e altura.');
                 return;
             }
 
-            const imc = (weight / (height * height)).toFixed(2);
-            let classification = '';
+            const imc = calcularIMC(peso, altura);
+            const classificacao = classificarIMC(imc);
 
-            if (imc < 18.5) {
-                classification = 'Abaixo do peso';
-            } else if (imc < 24.9) {
-                classification = 'Peso normal';
-            } else if (imc < 29.9) {
-                classification = 'Sobrepeso';
-            } else {
-                classification = 'Obesidade';
-            }
-
-            document.getElementById('result').innerHTML = `Seu IMC é: ${imc} (${classification})`;
-        });
-
-
+            document.getElementById('result').value = `Seu IMC é: ${imc} (${classificacao})`;
+        }
     </script>
 </body>
 
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora-IMC 🥰​​​​🤣​</title>
-    <style>
-        body {
-            margin-left: 40%;
-            margin-right: 40%;
-            font-family: ;
-        }
-    </style>
-</head>
-
-<body>
-
-    <h1>Calculadora - IMC</h1>
-    <hr>
-
-    <label for="name">Nome: </label>
-    <input type="text" id="name" name="name">
-    <br>
-
-    <label for="altura">Altura (M): </label>
-    <input type="number" id="altura">
-    <br>
-
-    <label for="peso">Peso: </label>
-    <input type="number" id="peso">
-    <br>
-
-    <button onclick="calculo()">Calcular</button>
-    <br>
-    <h1 id="result"></h1>
-    <img id="img">
-
-
-    <script>
-       
-       function calculo() {
-            const name = document.querySelector("#name").value.trim();
-            const altura = parseFloat(document.querySelector("#altura").value);
-            const peso = parseFloat(document.querySelector("#peso").value);
-            const result = document.getElementById("result");
-
-            if (name && !isNaN(altura) && !isNaN(peso)) {
-                const alturaM = altura / 100;
-                const imc = peso / (alturaM * alturaM);
-                let classificacao;
-
-                if (imc > 40) {
-
-                    classificacao = "Obesidade grau III";
-                    document.getElementById('img').src = "img/obesidadeGrau3.webp";
-                    
-                } else if (imc > 35 && imc <= 40) {
-
-                    classificacao = "Obesidade grau II";
-                    document.getElementById('img').src = "img/obesidadeGrau2.webp";
-
-                } else if (imc >30 && imc <= 35) {
-
-                    classificacao = "Obesidade grau I";
-                    document.getElementById('img').src = "img/obesidadeGrau1.webp";
-
-                } else if (imc >25 && imc <= 30) {
-
-                    classificacao = "Sobrepeso";
-                    document.getElementById('img').src = "img/sobrepeso,webp";
-
-                } else if (imc >20 && imc <= 25) {
-                    
-                    classificacao = "Normal";
-                    document.getElementById('img').src = "img/normal.webp";c
-                } else {
-
-                    classificacao = "Abaixo do normal";
-                    document.getElementById('img').src = "img/baixoNormal.webp";
-                }
-
-                result.innerHTML = `${name}, seu IMC é ${imc.toFixed(2)}. Classificação: ${classificacao}`;
-            } else {
-                result.innerHTML = `Por favor, preencha todos os campos corretamente.`;
-            }
-        }
-
-
-    </script>
-
-</body>
-
-</html> -->
